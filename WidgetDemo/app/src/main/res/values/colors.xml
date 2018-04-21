@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#0082BE</color>
+    <color name="colorPrimary">#00A0E8</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="background">#F8F8F8</color>
+    <color name="background_gray">#393A3F</color>
+    <color name="status_gray">#222222</color>
+    <color name="gray_back">#E3E3E3</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+
+    <color name="red_line">#D61C16</color>
+    <color name="gray_line">#EEEEEE</color>
+
+    <color name="text_title">#222222</color>
+    <color name="text_content_light">#666666</color>
+    <color name="text_content">#454545</color>
+    <color name="text_remark">#888888</color>
+    <color name="text_hint">#D5D5D5</color>
+    <color name="btn_gray_bg">#E1E1E1</color>
+
+    <color name="white_pressed">#ffd5d5d5</color>
+    <color name="stand_bg">#ffffff</color>
+
+    <color name="black">#000000</color>
+
+    <color name="dialog_black_bg">#EF252525</color>
+    <color name="dialog_white_bg">#EEFFFFFF</color>
+
+    <color name="divide_line">#D8DDE4</color>
+
+    <color name="blackSub">#343434</color>
+    <color name="transparent">#00000000</color>
+
+</resources>

@@ -1,0 +1,6 @@
+<resources>
+    <string name="tips_1">我们来一次友好的重启，请等待……</string>
+    <string name="tips_2">我就慌了一下，现在请继续……</string>
+
+    <string name="app_name">WidgetDemo</string>
+</resources>

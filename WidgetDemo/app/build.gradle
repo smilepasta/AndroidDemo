@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion COMPILE_SDK_VERSION
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        applicationId "com.example.administrator.widgetdemo"
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion TARGET_SDK_VERSION
+        versionCode APP_VERSION_CODE
+        versionName APP_VERSION_NAME
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility JAVA_VERSION
+        sourceCompatibility JAVA_VERSION
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation SUPPORT_DESIGN
+    implementation SUPPORT_APPCOMPAT_V7
+    implementation 'com.android.support.constraint:constraint-layout-solver:1.0.2'
+    testImplementation JUNIT_SUPPORT
+    implementation GLIDE_SUPPORT
+    implementation QINIU_SUPPORT
+    implementation GSON_SUPPORT
+    implementation RX_PERMISSION_SUPPORT
+    implementation RX_JAVA_SUPPORT
+    implementation project(path: ':matisse')
+    implementation files('libs/BaiduLBS_Android.jar')
+}

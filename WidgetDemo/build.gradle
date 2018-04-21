@@ -1,0 +1,71 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.1'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    //编译的版本
+    COMPILE_SDK_VERSION = 27
+    //最低版本
+    MIN_SDK_VERSION = 15
+    //目标版本
+    TARGET_SDK_VERSION = 27
+    //app版本名称
+    APP_VERSION_NAME = "1.0"
+    //app版本号
+    APP_VERSION_CODE = 1
+    //java版本
+    JAVA_VERSION = "1.8"
+    //支持库版本
+    SUPPORT_LIB_VERSION ="27.1.1"
+    SUPPORT_DESIGN = 'com.android.support:design:' + SUPPORT_LIB_VERSION
+    SUPPORT_V4 = 'com.android.support:support-v4:' + SUPPORT_LIB_VERSION
+    SUPPORT_APPCOMPAT_V7 = 'com.android.support:appcompat-v7:' + SUPPORT_LIB_VERSION
+    SUPPORT_ANNOTATIONS = 'com.android.support:support-annotations:' + SUPPORT_LIB_VERSION
+    SUPPORT_RECYCLERVIEW_V7 = 'com.android.support:recyclerview-v7:' + SUPPORT_LIB_VERSION
+    //junit
+    JUNIT_VERSION = "4.12"
+    JUNIT_SUPPORT = 'junit:junit:'+ JUNIT_VERSION
+    //glide
+    GLIDE_VERSION = "3.7.0"
+    GLIDE_SUPPORT = 'com.github.bumptech.glide:glide:' + GLIDE_VERSION
+    //picasso
+    PICASSO_VERSION = "2.5.2"    
+    PICASSO_SUPPORT = 'com.squareup.picasso:picasso:' + PICASSO_VERSION 
+    //qiniu
+    QINIU_VERSION = "7.3.12"
+    QINIU_SUPPORT = 'com.qiniu:qiniu-android-sdk:' + QINIU_VERSION
+    //gson
+    GSON_VERSION = "2.8.2"
+    GSON_SUPPORT = 'com.google.code.gson:gson:' + GSON_VERSION
+    //rx_permissions2
+    RX_PERMISSION_VERSION = "0.9.5@aar"
+    RX_PERMISSION_SUPPORT = 'com.tbruyelle.rxpermissions2:rxpermissions:'+RX_PERMISSION_VERSION
+    //rx_java
+    RX_JAVA_VERSION = "2.0.5"
+    RX_JAVA_SUPPORT = 'io.reactivex.rxjava2:rxjava:' + RX_JAVA_VERSION
+    //imagezoom
+    IMAGE_ZOOM_VERSION = "1.0.4"
+    IMAGE_ZOOM_SUPPORT = 'it.sephiroth.android.library.imagezoom:library:' + IMAGE_ZOOM_VERSION
+}
