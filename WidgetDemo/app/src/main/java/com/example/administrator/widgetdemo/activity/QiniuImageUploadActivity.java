@@ -12,9 +12,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.example.administrator.widgetdemo.R;
+import com.example.administrator.widgetdemo.utils.FileUtil;
 import com.example.administrator.widgetdemo.utils.GlideUtil;
 import com.example.administrator.widgetdemo.utils.QiniuAuth;
-import com.example.administrator.widgetdemo.utils.FileUtil;
 import com.example.administrator.widgetdemo.utils.StringUtil;
 import com.example.administrator.widgetdemo.utils.ToastUtil;
 

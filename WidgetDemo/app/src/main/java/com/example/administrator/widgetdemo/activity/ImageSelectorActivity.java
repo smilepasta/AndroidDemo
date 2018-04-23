@@ -13,8 +13,8 @@ import android.widget.ImageView;
 import com.example.administrator.widgetdemo.R;
 import com.example.administrator.widgetdemo.utils.FileUtil;
 import com.example.administrator.widgetdemo.utils.LogUtil;
+import com.example.administrator.widgetdemo.utils.PermissionUtil;
 import com.example.administrator.widgetdemo.utils.ToastUtil;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
 import com.zhihu.matisse.engine.impl.GlideEngine;
@@ -32,7 +32,6 @@ public class ImageSelectorActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_CHOOSE = 1;
 
     private Context mContext;
-    private RxPermissions mRxPermissions;
     private ImageView mImg;
 
     @Override
@@ -41,9 +40,6 @@ public class ImageSelectorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_image_selector);
 
         mContext = this;
-        // where this is an Activity instance
-        mRxPermissions = new RxPermissions(this);
-
         findViewById(R.id.btn_1).setOnClickListener(v -> askPermission(v));
         findViewById(R.id.btn_2).setOnClickListener(v -> askPermission(v));
         mImg = findViewById(R.id.iv_img);
@@ -52,9 +48,9 @@ public class ImageSelectorActivity extends AppCompatActivity {
 
     @SuppressLint("CheckResult")
     private void askPermission(View v) {
-        mRxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(granted -> {
-            if (granted) {
-                // All requested permissions are granted
+        PermissionUtil.request(ImageSelectorActivity.this, new PermissionUtil.IPermisssionListener() {
+            @Override
+            public void granted() {
                 switch (v.getId()){
                     case R.id.btn_1:
                         Matisse.from(ImageSelectorActivity.this)
@@ -77,12 +73,14 @@ public class ImageSelectorActivity extends AppCompatActivity {
                                 .forResult(REQUEST_CODE_CHOOSE);
                         break;}
 
-
-            } else {
-                // At least one permission is denied
-                ToastUtil.show(mContext,"您怎么能拒绝这个权限呢？");
             }
-        });
+
+            @Override
+            public void refused() {
+                ToastUtil.show(ImageSelectorActivity.this,"refused");
+            }
+        },Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
     }
 
     @Override

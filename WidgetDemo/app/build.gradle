@@ -40,6 +40,7 @@ dependencies {
     implementation GSON_SUPPORT
     implementation RX_PERMISSION_SUPPORT
     implementation RX_JAVA_SUPPORT
-    implementation project(path: ':matisse')
+    implementation project(path: ':lib-matisse')
     implementation files('libs/BaiduLBS_Android.jar')
+    implementation project(path: ':lib-zxing')
 }

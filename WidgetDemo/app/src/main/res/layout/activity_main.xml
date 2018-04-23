@@ -108,6 +108,17 @@
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_height="wrap_content"/>
 
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:id="@+id/btn_10"
+            android:text="zxing"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/colorPrimary"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 </ScrollView>

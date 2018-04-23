@@ -1,16 +1,14 @@
 package com.example.administrator.widgetdemo.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
@@ -18,6 +16,8 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.CoordinateConverter;
 import com.example.administrator.widgetdemo.R;
 import com.example.administrator.widgetdemo.utils.LogUtil;
+import com.example.administrator.widgetdemo.utils.PermissionUtil;
+import com.example.administrator.widgetdemo.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +29,6 @@ import java.util.List;
  * Version:1.0
  */
 public class MainActivity extends AppCompatActivity {
-
-    private static final int REQUEST_EXTERNAL_STORAGE = 1;
-    private static String[] PERMISSIONS_STORAGE = {
-            "android.permission.READ_EXTERNAL_STORAGE",
-            "android.permission.WRITE_EXTERNAL_STORAGE"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +56,18 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_4).setOnClickListener(v -> startActivity(new Intent(MainActivity.this,CrashHandlerActivity.class)));
 
         if (Build.VERSION.SDK_INT >= 23) {
-            verifyStoragePermissions(this);
+            PermissionUtil.request(this, new PermissionUtil.IPermisssionListener() {
+                @Override
+                public void granted() {
+                    ToastUtil.show(MainActivity.this,"granted");
+                }
+
+                @Override
+                public void refused() {
+                    ToastUtil.show(MainActivity.this,"您怎么能拒绝这个权限呢？");
+
+                }
+            }, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
         findViewById(R.id.btn_5).setOnClickListener(view -> {
             throw new RuntimeException("I'm a cool exception and I crashed the main thread!");
@@ -70,23 +76,14 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_7).setOnClickListener(v -> startActivity(new Intent(MainActivity.this,QiniuImageUploadActivity.class)));
         findViewById(R.id.btn_8).setOnClickListener(v -> startActivity(new Intent(MainActivity.this,ImageSelectorActivity.class)));
         findViewById(R.id.btn_9).setOnClickListener(v -> startActivity(new Intent(MainActivity.this,BaiduMapActivity.class)));
+        findViewById(R.id.btn_10).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,QRCodeActivity.class));
+            }
+        });
         getLocationInfo();
     }
-
-    public void verifyStoragePermissions(Activity activity) {
-        try {
-            //检测是否有写的权限
-            int permission = ActivityCompat.checkSelfPermission(activity,
-                    "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (permission != PackageManager.PERMISSION_GRANTED) {
-                // 没有写的权限，去申请写的权限，会弹出对话框
-                ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 
     /**
      * 获取手机的经纬度
