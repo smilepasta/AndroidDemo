@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.example.administrator.widgetdemo.R;
 
 import java.io.File;
 
@@ -18,6 +19,7 @@ public class GlideUtil {
         Context context = imageView.getContext();
         Glide.with(context)
                 .load(url)
+                .error(R.mipmap.error)
                 .crossFade()
                 .centerCrop()
                 .into(imageView);
@@ -27,6 +29,7 @@ public class GlideUtil {
         Context context = imageView.getContext();
         Glide.with(context)
                 .load(file)
+                .error(R.mipmap.error)
                 .crossFade()
                 .centerCrop()
                 .into(imageView);
@@ -36,6 +39,7 @@ public class GlideUtil {
         Context context = imageView.getContext();
         Glide.with(context)
                 .load(resourceId)
+                .error(R.mipmap.error)
                 .crossFade()
                 .centerCrop()
                 .into(imageView);

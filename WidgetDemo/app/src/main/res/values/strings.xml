@@ -3,4 +3,6 @@
     <string name="tips_2">我就慌了一下，现在请继续……</string>
 
     <string name="app_name">WidgetDemo</string>
+    <string name="loading">loading...</string>
+
 </resources>

@@ -29,9 +29,9 @@ public class BannerActivity extends AppCompatActivity {
 
         final List<String> urls1 = new ArrayList<>();
         urls1.add("https://resources.matcha-jp.com/archive_files/jp/2016/09/what_is_sakura.jpg");
-        urls1.add("https://fthmb.tqn.com/Sq6Kp6lndB0KWrXJWpJroTQECN0=/960x0/filters:no_upscale()/Cherry-Blossoms-Dennis-Govoni-56cb3b173df78cfb379b7b91.jpg");
-        urls1.add("https://d1p2fuior9l0tb.cloudfront.net/wp-content/uploads/2018/03/11194616/Jefferson-Memorial-shutterstock_1872661851.jpg");
-        urls1.add("https://cdn-images-1.medium.com/max/1200/1*qsdj8-E2ZmBSiZFQTDTzHw.jpeg");
+        urls1.add("http://img.sc115.com/tx/ns/pic/1503l4nncimpv4v.jpg");
+        urls1.add("http://images.xuejuzi.cn/1505/1_150511223813_1.jpg");
+        urls1.add("http://images.xuejuzi.cn/1505/1_150511223801_1.jpg");
         bannerLayout1.setViewUrls(urls1);
 
         //添加监听事件
@@ -41,7 +41,7 @@ public class BannerActivity extends AppCompatActivity {
         urls2.add("http://images.xuejuzi.cn/1505/1_150511223801_1.jpg");
         urls2.add("http://images.xuejuzi.cn/1505/1_150511223813_1.jpg");
         urls2.add("http://img.sc115.com/tx/ns/pic/1503l4nncimpv4v.jpg");
-        urls2.add("https://cdn-images-1.medium.com/max/1200/1*qsdj8-E2ZmBSiZFQTDTzHw.jpeg");
+        urls2.add("https://resources.matcha-jp.com/archive_files/jp/2016/09/what_is_sakura.jpg");
         bannerLayout2.setViewUrls(urls2);
         //添加监听事件
         bannerLayout2.setOnBannerItemClickListener(position -> Toast.makeText(BannerActivity.this, String.valueOf(position), Toast.LENGTH_SHORT).show());

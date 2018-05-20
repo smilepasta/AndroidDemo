@@ -2,15 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.widgetdemo">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 访问网络权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 获取网络状态的权限控制 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 读取外部存储的权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 写入外部存储的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 是有关GPS定位获取的信息使用GPS -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 粗略的位置获取 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 相机权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 振动权限 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
+    <!-- 8.0需要更新未知应用的权限 -->
+    <!-- 下载管理权限 -->
     <application
         android:name=".XMApp"
         android:allowBackup="true"
@@ -38,7 +41,6 @@
         <activity android:name=".activity.PhotoViewActivity" />
         <activity android:name=".activity.WebViewActivity" />
         <activity android:name=".activity.CrashHandlerActivity" />
-        <activity android:name=".activity.ListActivity" />
         <activity android:name=".activity.QiniuImageUploadActivity" />
         <activity android:name=".activity.ImageSelectorActivity" />
         <activity android:name=".activity.BaiduMapActivity" />
@@ -46,13 +48,38 @@
 
         <provider
             android:name=".provider.GenericFileProvider"
-            android:authorities="${applicationId}.fileProvider"
+            android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+
+        <activity android:name=".activity.AndroidVer8Activity" />
+        <activity android:name=".activity.DuobianxinActivity" />
+        <activity android:name=".activity.TabListActivity" />
+        <activity android:name=".activity.CacheActivity" />
+        <activity android:name=".activity.DialogActivity" />
+        <activity android:name=".activity.ExandableActivity" />
+        <activity android:name=".activity.JPushActivity" />
+
+        <receiver
+            android:name=".MyReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" /> <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="com.hdl.jpushdemo" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".activity.HorizontalScrollViewActivity"></activity>
     </application>
 
 </manifest>

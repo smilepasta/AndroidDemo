@@ -3,8 +3,12 @@ package com.example.administrator.widgetdemo;
 import android.app.Application;
 
 import com.baidu.mapapi.SDKInitializer;
-import com.example.administrator.widgetdemo.utils.CrashHandler;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import cn.jpush.android.api.JPushInterface;
 
 /**
  * Author:huangxiaoming
@@ -29,9 +33,23 @@ public class XMApp extends Application {
 
         //ZXing初始化
         ZXingLibrary.initDisplayOpinion(this);
+
+        //jpush
+        initJpush();
     }
 
-    public static XMApp getInstance(){
+    private void initJpush() {
+        //初始化sdk
+        JPushInterface.setDebugMode(true);//正式版的时候设置false，关闭调试
+        JPushInterface.init(this);
+        //建议添加tag标签，发送消息的之后就可以指定tag标签来发送了
+        Set<String> set = new HashSet<>();
+        set.add("tag1");//名字任意，可多添加几个
+        JPushInterface.setTags(this, set, null);
+        JPushInterface.setAlias(this, 0, "tag1");
+    }
+
+    public static XMApp getInstance() {
         return instance;
     }
 

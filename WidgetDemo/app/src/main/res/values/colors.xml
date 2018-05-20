@@ -3,14 +3,19 @@
     <color name="colorPrimaryDark">#0082BE</color>
     <color name="colorPrimary">#00A0E8</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorAccentTranslucent">#66FF4081</color>
 
-    <color name="background">#F8F8F8</color>
+    <color name="dDVTransparentGray">#99000000</color>
+
+    <color name="dDVColorPrimary">@color/colorPrimary</color>
+
+    <color name="background">#EAEAEA</color>
     <color name="background_gray">#393A3F</color>
     <color name="status_gray">#222222</color>
     <color name="gray_back">#E3E3E3</color>
     <color name="white">#FFFFFF</color>
     <color name="red">#FF0000</color>
-
+    <color name="transparentGray">#99000000</color>
     <color name="red_line">#D61C16</color>
     <color name="gray_line">#EEEEEE</color>
 
@@ -33,5 +38,11 @@
 
     <color name="blackSub">#343434</color>
     <color name="transparent">#00000000</color>
+
+    <color name="color_red">#ff0000</color>
+    <color name="color_line">#e0e0e0</color>
+    <color name="color_transparent">#00000000</color>
+
+    <color name="c_ff9900">#ff9900</color>
 
 </resources>
