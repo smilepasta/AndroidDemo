@@ -5,7 +5,7 @@ Jpush<br/>
 ZXing<br/>
 图片预览<br/>
 自定义选择相册<br/>
-缓存处理<br/>
+DiskLruCache<br/>
 应用更新<br/>
 自定义View（WheelView城市选择、进度条显示百度比）<br/>
 全局异常处理<br/>
