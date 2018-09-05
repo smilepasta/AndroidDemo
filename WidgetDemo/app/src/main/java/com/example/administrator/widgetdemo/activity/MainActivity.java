@@ -144,6 +144,38 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, HorizontalScrollViewActivity.class));
             }
         });
+        findViewById(R.id.btn_18).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, BottomSheetDialogActivity.class));
+            }
+        });
+        findViewById(R.id.btn_19).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, WheelViewActivity.class));
+            }
+        });
+        findViewById(R.id.btn_20).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, JSAndAndroidActivity.class));
+            }
+        });
+        findViewById(R.id.btn_21).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CustomViewActivity.class));
+            }
+        });
+        findViewById(R.id.btn_22).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CrashSaveDataActivity.class));
+            }
+        });
+
+
     }
 
     /**

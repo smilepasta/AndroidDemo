@@ -39,14 +39,12 @@ public class BannerActivity extends AppCompatActivity {
 
         final List<String> urls2 = new ArrayList<>();
         urls2.add("http://images.xuejuzi.cn/1505/1_150511223801_1.jpg");
-        urls2.add("http://images.xuejuzi.cn/1505/1_150511223813_1.jpg");
-        urls2.add("http://img.sc115.com/tx/ns/pic/1503l4nncimpv4v.jpg");
-        urls2.add("https://resources.matcha-jp.com/archive_files/jp/2016/09/what_is_sakura.jpg");
         bannerLayout2.setViewUrls(urls2);
         //添加监听事件
         bannerLayout2.setOnBannerItemClickListener(position -> Toast.makeText(BannerActivity.this, String.valueOf(position), Toast.LENGTH_SHORT).show());
 
         bannerLayout3.setViewUrls(urls1);
+
         //添加监听事件
         bannerLayout3.setOnBannerItemClickListener(position -> Toast.makeText(BannerActivity.this, String.valueOf(position), Toast.LENGTH_SHORT).show());
 

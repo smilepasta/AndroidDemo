@@ -16,8 +16,6 @@ import java.io.Serializable;
  */
 public class VersionEntity implements Serializable {
 
-    public static final String VERSION_KEY = "version_key";
-
     public VersionEntity(String url, String versionName) {
         this.url = url;
         this.versionName = versionName;

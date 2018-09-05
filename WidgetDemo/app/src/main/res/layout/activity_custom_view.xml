@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context=".activity.CustomViewActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rect_transition"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_10">
+
+        <com.example.administrator.widgetdemo.widget.RoundProgressView
+            android:id="@+id/rpv_progress"
+            android:layout_width="@dimen/dp_150"
+            android:layout_height="@dimen/dp_150"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            app:srp_max="100"
+            app:srp_progressColor="@color/white"
+            app:srp_roundColor="@color/white"
+            app:srp_roundWidth="@dimen/dp_8"
+            app:srp_startAngle="-90"
+            app:srp_style="STROKE"
+            app:srp_txtColor="@color/white"
+            app:srp_txtSize="@dimen/dp_30" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/rect_transition"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_10">
+
+        <com.example.administrator.widgetdemo.widget.waveview.WaveView
+            android:id="@+id/wave"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_150"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
+</LinearLayout>

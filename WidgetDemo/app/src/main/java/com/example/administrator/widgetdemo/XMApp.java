@@ -36,6 +36,7 @@ public class XMApp extends Application {
 
         //jpush
         initJpush();
+
     }
 
     private void initJpush() {

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试一下这个应用</title>
+
+	<script type="text/javascript">
+		function callJS(){
+			document.getElementById('val').innerHTML = "Android调用了JS的callJS方法";
+			alert("Android调用了JS的callJS方法");
+		}
+
+		 function callAndroid(){
+        // 由于对象映射，所以调用test对象等于调用Android映射的对象
+            test.hello("js调用了android中的hello方法");
+         }
+
+		function callUid(){
+			document.getElementById('uid').innerHTML = localStorage.uid;
+		}
+
+	</script>
+</head>
+<body>
+	<span id="val"></span>
+	<span id="uid"></span>
+	<button type="button" onclick="callAndroid()">js调用android中的hello方法</button>
+	<button type="button" onclick="callUid()">显示传过来的uid</button>
+</body>
+</html>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.administrator.widgetdemo">
 
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 访问网络权限 -->
@@ -26,7 +27,7 @@
         <!-- baidu map -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="0MbfwHWf6C4f2b3s9L71I7QGfmPgDcTo" />
+            android:value="NsSpSQAlqN6Uk3TZ4iLrjD4tOWa16fqd" />
 
         <activity
             android:name=".activity.MainActivity"
@@ -75,11 +76,26 @@
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!-- Required  用户打开自定义通知栏的intent -->
                 <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" /> <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
                 <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
-                <category android:name="com.hdl.jpushdemo" />
+                <category android:name="com.example.administrator.widgetdemo" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activity.HorizontalScrollViewActivity"></activity>
+        <activity android:name=".activity.HorizontalScrollViewActivity" />
+        <activity android:name=".activity.BottomSheetDialogActivity" />
+        <activity android:name=".activity.WheelViewActivity" />
+        <activity android:name=".activity.JSAndAndroidActivity" />
+        <activity android:name=".activity.CustomViewActivity" />
+
+        <service
+            android:name=".service.MyService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.demo.SERVICE_DEMO" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".activity.CrashSaveDataActivity"></activity>
     </application>
 
 </manifest>

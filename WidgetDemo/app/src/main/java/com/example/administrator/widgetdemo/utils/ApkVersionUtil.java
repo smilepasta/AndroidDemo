@@ -37,8 +37,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * @创建世间 2012-5-11下午5:28:56
- * @类说明 检查软件升级
+ * Author: huangxiaoming
+ * Date: 2018/5/30
+ * Desc:
+ * Version: 1.0
  */
 public class ApkVersionUtil {
     private Context context;

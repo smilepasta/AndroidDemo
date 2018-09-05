@@ -10,6 +10,7 @@ import android.os.Message;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -32,12 +33,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * Created by huangxiaoming on 2018/04/14.
- */
+
 public class BannerLayout extends RelativeLayout {
 
-    private ViewPager pager;
+    private CustomViewPager pager;
     //指示器容器
     private LinearLayout indicatorContainer;
 
@@ -208,6 +207,10 @@ public class BannerLayout extends RelativeLayout {
             }
         }
         setViews(views);
+        //只有一张图片的时候隐藏显示点
+        if (itemCount < 2 && indicatorContainer != null) {
+            indicatorContainer.setVisibility(View.GONE);
+        }
     }
 
     @NonNull
@@ -237,7 +240,7 @@ public class BannerLayout extends RelativeLayout {
     //添加任意View视图
     public void setViews(final List<View> views) {
         //初始化pager
-        pager = new ViewPager(getContext());
+        pager = new CustomViewPager(getContext());
         //添加viewpager到SliderLayout
         addView(pager);
         setSliderTransformDuration(scrollDuration);
@@ -303,7 +306,6 @@ public class BannerLayout extends RelativeLayout {
         if (isAutoPlay) {
             startAutoPlay();
         }
-
     }
 
     public void setSliderTransformDuration(int duration) {
@@ -514,5 +516,39 @@ public class BannerLayout extends RelativeLayout {
 
     public interface ImageLoader extends Serializable {
         void displayImage(Context context, String path, ImageView imageView);
+    }
+
+    /**
+     * 当只有一张图片时，设置成不可以滑动
+     */
+    class CustomViewPager extends ViewPager {
+
+        public CustomViewPager(@NonNull Context context) {
+            super(context);
+        }
+
+        public CustomViewPager(@NonNull Context context, @Nullable AttributeSet attrs) {
+            super(context, attrs);
+        }
+
+        @Override
+        public boolean onTouchEvent(MotionEvent arg0) {
+            //当轮播图只有一张的时候
+            if (itemCount < 2) {
+                return false;
+            } else {
+                return super.onTouchEvent(arg0);
+            }
+        }
+
+        @Override
+        public boolean onInterceptTouchEvent(MotionEvent arg0) {
+            //当轮播图只有一张的时候
+            if (itemCount < 2) {
+                return false;
+            } else {
+                return super.onInterceptTouchEvent(arg0);
+            }
+        }
     }
 }
